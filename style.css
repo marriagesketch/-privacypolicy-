@@ -1,34 +1,40 @@
 /* =========================================================
    利用規約 / プライバシーポリシー 共通スタイル
    LINEミニアプリ（スマートフォン表示）向け
+   ブランドカラー：アプリ本体の style.css に準拠したピンク系
    ========================================================= */
 
 :root {
-  --color-bg: #F3F1EC;
-  --color-surface: #FFFFFF;
-  --color-surface-soft: #ECEAE3;
-  --color-border: #DEDACF;
+  --color-bg: #fff6f7;
+  --color-surface: #ffffff;
+  --color-surface-soft: #fff9fa;
+  --color-border: #f0c5cc;
 
-  --color-text: #292722;
-  --color-text-muted: #6E6A60;
-  --color-text-faint: #97927F;
+  --color-text: #444444;
+  --color-text-muted: #666666;
+  --color-text-faint: #999999;
 
-  --color-primary: #3C4A63;      /* 深い藍 : 信頼感 */
-  --color-primary-soft: #E4E8EE;
-  --color-primary-line: #C7CEDB;
+  --color-primary: #d96c7d;      /* 見出し・チップ等のメインピンク */
+  --color-primary-soft: #ffeef1;
+  --color-primary-line: #f4b8c5;
 
-  --color-accent: #A2637A;       /* くすみローズ : 二人の関係性を示す差し色 */
-  --color-accent-soft: #F1E4E8;
+  --color-accent: #f48ca0;       /* ボタン・強調に使うピンク */
+  --color-accent-soft: #fdeef1;
 
-  --color-safe: #4C7A6B;         /* 「取得しない情報」等の安心表示に使う緑 */
-  --color-safe-soft: #E4EDE9;
+  --color-check: #d96c7d;        /* 「取得しない情報」等の安心表示（旧：緑→ピンクに変更） */
+  --color-check-soft: #fff0f3;
+  --color-check-line: #f4c7d0;
 
-  --font-display: "Shippori Mincho", "Hiragino Mincho ProN", serif;
-  --font-body: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+  --font-body:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Hiragino Sans",
+    "Yu Gothic",
+    sans-serif;
 
-  --radius-l: 18px;
-  --radius-m: 12px;
-  --radius-s: 8px;
+  --radius-l: 20px;
+  --radius-m: 14px;
+  --radius-s: 10px;
 
   --line-safe-bottom: 34px;
 }
@@ -69,12 +75,12 @@ a { color: var(--color-primary); }
   position: sticky;
   top: 0;
   z-index: 20;
-  background: var(--color-primary);
-  color: #fff;
+  background: var(--color-surface);
+  color: var(--color-text);
   padding: 22px 20px 20px;
   border-bottom-left-radius: var(--radius-l);
   border-bottom-right-radius: var(--radius-l);
-  box-shadow: 0 6px 16px rgba(60, 74, 99, 0.18);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .app-header__eyebrow {
@@ -83,7 +89,7 @@ a { color: var(--color-primary); }
   gap: 6px;
   font-size: 11px;
   letter-spacing: 0.14em;
-  color: #D9DEE8;
+  color: var(--color-accent);
   text-transform: uppercase;
   margin-bottom: 8px;
 }
@@ -98,16 +104,16 @@ a { color: var(--color-primary); }
 }
 
 .app-header h1 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 22px;
+  font-weight: 700;
+  font-size: 26px;
   margin: 0 0 6px;
-  letter-spacing: 0.02em;
+  color: var(--color-primary);
+  letter-spacing: 0.01em;
 }
 
 .app-header__updated {
   font-size: 12px;
-  color: #C6CCDA;
+  color: var(--color-text-faint);
 }
 
 /* ---------- 目次（チップナビ） ---------- */
@@ -120,7 +126,7 @@ a { color: var(--color-primary); }
   gap: 8px;
   overflow-x: auto;
   padding: 12px 16px;
-  background: linear-gradient(to bottom, var(--color-bg) 70%, rgba(243,241,236,0));
+  background: linear-gradient(to bottom, var(--color-bg) 70%, rgba(255, 246, 247, 0));
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
@@ -129,6 +135,7 @@ a { color: var(--color-primary); }
 .toc-nav a {
   flex: 0 0 auto;
   font-size: 12.5px;
+  font-weight: 600;
   color: var(--color-primary);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -140,8 +147,8 @@ a { color: var(--color-primary); }
 }
 
 .toc-nav a.is-active {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
   color: #fff;
 }
 
@@ -159,6 +166,7 @@ main {
   border-radius: var(--radius-l);
   padding: 18px 18px 20px;
   margin: 12px 0 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .lead-card p {
@@ -171,6 +179,7 @@ main {
 .lead-card__service {
   display: inline-block;
   font-size: 11.5px;
+  font-weight: 600;
   color: var(--color-accent);
   background: var(--color-accent-soft);
   border-radius: 999px;
@@ -188,11 +197,12 @@ main {
   padding: 18px 18px 20px;
   margin-bottom: 14px;
   scroll-margin-top: 96px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .clause__number {
-  font-family: var(--font-display);
   font-size: 12px;
+  font-weight: 700;
   color: var(--color-primary);
   background: var(--color-primary-soft);
   border-radius: 999px;
@@ -203,9 +213,8 @@ main {
 }
 
 .clause h2 {
-  font-family: var(--font-display);
-  font-size: 16.5px;
-  font-weight: 600;
+  font-size: 17px;
+  font-weight: 700;
   margin: 0 0 10px;
   color: var(--color-text);
   line-height: 1.6;
@@ -227,7 +236,7 @@ main {
 
 .clause__sub {
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-primary);
   margin: 14px 0 6px;
 }
@@ -243,11 +252,15 @@ main {
   font-size: 13.5px;
 }
 
+.notice-box ul { margin: 0; padding-left: 1.2em; }
+.notice-box li { margin-bottom: 6px; }
+.notice-box li:last-child { margin-bottom: 0; }
+
 /* ---------- 安心ボックス（取得しない情報 等） ---------- */
 
 .safe-box {
-  background: var(--color-safe-soft);
-  border: 1px solid #CFE1D8;
+  background: var(--color-check-soft);
+  border: 1px solid var(--color-check-line);
   border-radius: var(--radius-m);
   padding: 14px 15px;
   margin: 12px 0;
@@ -259,7 +272,7 @@ main {
   gap: 6px;
   font-size: 13px;
   font-weight: 700;
-  color: var(--color-safe);
+  color: var(--color-check);
   margin-bottom: 8px;
 }
 
@@ -272,7 +285,7 @@ main {
   height: 16px;
   font-size: 10px;
   color: #fff;
-  background: var(--color-safe);
+  background: var(--color-check);
   border-radius: 50%;
 }
 
@@ -287,9 +300,9 @@ main {
 
 .safe-box li {
   font-size: 12.5px;
-  color: #355249;
+  color: #9c4a58;
   background: #fff;
-  border: 1px solid #CFE1D8;
+  border: 1px solid var(--color-check-line);
   border-radius: 999px;
   padding: 4px 10px;
 }
@@ -307,6 +320,7 @@ main {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-m);
   padding: 12px 13px;
+  background: var(--color-surface-soft);
 }
 
 .data-flow__item h3 {
@@ -324,17 +338,19 @@ main {
 /* ---------- お問い合わせ ---------- */
 
 .contact-card {
-  background: var(--color-primary);
-  color: #fff;
+  background: linear-gradient(135deg, #fff9fa 0%, #ffeef1 100%);
+  border: 1px solid var(--color-primary-line);
+  color: var(--color-text);
   border-radius: var(--radius-l);
   padding: 18px;
   margin-top: 6px;
 }
 
 .contact-card h2 {
-  font-family: var(--font-display);
   font-size: 15.5px;
+  font-weight: 700;
   margin: 0 0 10px;
+  color: var(--color-primary);
 }
 
 .contact-card dl {
@@ -343,7 +359,8 @@ main {
 }
 
 .contact-card dt {
-  color: #C6CCDA;
+  color: var(--color-accent);
+  font-weight: 600;
   font-size: 11.5px;
   margin-top: 10px;
 }
@@ -379,6 +396,7 @@ main {
   display: block;
   text-align: center;
   font-size: 13px;
+  font-weight: 600;
   color: var(--color-primary);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -391,6 +409,7 @@ main {
 .cross-link span {
   color: var(--color-text-faint);
   font-size: 11.5px;
+  font-weight: 400;
   display: block;
   margin-top: 2px;
 }
