@@ -1,0 +1,400 @@
+/* =========================================================
+   利用規約 / プライバシーポリシー 共通スタイル
+   LINEミニアプリ（スマートフォン表示）向け
+   ========================================================= */
+
+:root {
+  --color-bg: #F3F1EC;
+  --color-surface: #FFFFFF;
+  --color-surface-soft: #ECEAE3;
+  --color-border: #DEDACF;
+
+  --color-text: #292722;
+  --color-text-muted: #6E6A60;
+  --color-text-faint: #97927F;
+
+  --color-primary: #3C4A63;      /* 深い藍 : 信頼感 */
+  --color-primary-soft: #E4E8EE;
+  --color-primary-line: #C7CEDB;
+
+  --color-accent: #A2637A;       /* くすみローズ : 二人の関係性を示す差し色 */
+  --color-accent-soft: #F1E4E8;
+
+  --color-safe: #4C7A6B;         /* 「取得しない情報」等の安心表示に使う緑 */
+  --color-safe-soft: #E4EDE9;
+
+  --font-display: "Shippori Mincho", "Hiragino Mincho ProN", serif;
+  --font-body: "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+
+  --radius-l: 18px;
+  --radius-m: 12px;
+  --radius-s: 8px;
+
+  --line-safe-bottom: 34px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: var(--line-safe-bottom); /* LINEミニアプリ ノーマルモード セーフエリア */
+}
+
+/* ランドスケープモード セーフエリア */
+@media (orientation: landscape) {
+  body {
+    padding-left: 44px;
+    padding-right: 44px;
+    padding-bottom: 21px;
+  }
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--color-primary); }
+
+/* ---------- ヘッダー ---------- */
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 22px 20px 20px;
+  border-bottom-left-radius: var(--radius-l);
+  border-bottom-right-radius: var(--radius-l);
+  box-shadow: 0 6px 16px rgba(60, 74, 99, 0.18);
+}
+
+.app-header__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: #D9DEE8;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.app-header__eyebrow::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  display: inline-block;
+}
+
+.app-header h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 22px;
+  margin: 0 0 6px;
+  letter-spacing: 0.02em;
+}
+
+.app-header__updated {
+  font-size: 12px;
+  color: #C6CCDA;
+}
+
+/* ---------- 目次（チップナビ） ---------- */
+
+.toc-nav {
+  position: sticky;
+  top: 0;
+  z-index: 19;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 12px 16px;
+  background: linear-gradient(to bottom, var(--color-bg) 70%, rgba(243,241,236,0));
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.toc-nav::-webkit-scrollbar { display: none; }
+
+.toc-nav a {
+  flex: 0 0 auto;
+  font-size: 12.5px;
+  color: var(--color-primary);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 7px 13px;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.toc-nav a.is-active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+/* ---------- 本文コンテナ ---------- */
+
+main {
+  padding: 4px 16px 28px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.lead-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-l);
+  padding: 18px 18px 20px;
+  margin: 12px 0 18px;
+}
+
+.lead-card p {
+  margin: 0 0 10px;
+  color: var(--color-text-muted);
+  font-size: 13.5px;
+}
+.lead-card p:last-child { margin-bottom: 0; }
+
+.lead-card__service {
+  display: inline-block;
+  font-size: 11.5px;
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  border-radius: 999px;
+  padding: 4px 10px;
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- 条文カード ---------- */
+
+.clause {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-l);
+  padding: 18px 18px 20px;
+  margin-bottom: 14px;
+  scroll-margin-top: 96px;
+}
+
+.clause__number {
+  font-family: var(--font-display);
+  font-size: 12px;
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+  border-radius: 999px;
+  display: inline-block;
+  padding: 3px 12px;
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+}
+
+.clause h2 {
+  font-family: var(--font-display);
+  font-size: 16.5px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+.clause p {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+.clause p:last-child { margin-bottom: 0; }
+
+.clause ul, .clause ol {
+  margin: 0 0 10px;
+  padding-left: 1.3em;
+  font-size: 14px;
+}
+.clause li { margin-bottom: 6px; }
+.clause li:last-child { margin-bottom: 0; }
+
+.clause__sub {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 14px 0 6px;
+}
+
+/* ---------- 強調ボックス（禁止事項・注意など） ---------- */
+
+.notice-box {
+  background: var(--color-accent-soft);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-s);
+  padding: 12px 14px;
+  margin: 12px 0;
+  font-size: 13.5px;
+}
+
+/* ---------- 安心ボックス（取得しない情報 等） ---------- */
+
+.safe-box {
+  background: var(--color-safe-soft);
+  border: 1px solid #CFE1D8;
+  border-radius: var(--radius-m);
+  padding: 14px 15px;
+  margin: 12px 0;
+}
+
+.safe-box__title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-safe);
+  margin-bottom: 8px;
+}
+
+.safe-box__title::before {
+  content: "✓";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
+  color: #fff;
+  background: var(--color-safe);
+  border-radius: 50%;
+}
+
+.safe-box ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.safe-box li {
+  font-size: 12.5px;
+  color: #355249;
+  background: #fff;
+  border: 1px solid #CFE1D8;
+  border-radius: 999px;
+  padding: 4px 10px;
+}
+
+/* ---------- データの扱い方カード(取得情報の内訳) ---------- */
+
+.data-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.data-flow__item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-m);
+  padding: 12px 13px;
+}
+
+.data-flow__item h3 {
+  font-size: 13px;
+  margin: 0 0 4px;
+  color: var(--color-primary);
+}
+
+.data-flow__item p {
+  font-size: 13px;
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+/* ---------- お問い合わせ ---------- */
+
+.contact-card {
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius-l);
+  padding: 18px;
+  margin-top: 6px;
+}
+
+.contact-card h2 {
+  font-family: var(--font-display);
+  font-size: 15.5px;
+  margin: 0 0 10px;
+}
+
+.contact-card dl {
+  margin: 0;
+  font-size: 13px;
+}
+
+.contact-card dt {
+  color: #C6CCDA;
+  font-size: 11.5px;
+  margin-top: 10px;
+}
+.contact-card dt:first-child { margin-top: 0; }
+
+.contact-card dd {
+  margin: 2px 0 0;
+}
+
+/* ---------- フッター ---------- */
+
+.page-footer {
+  max-width: 640px;
+  margin: 20px auto 0;
+  padding: 0 16px 8px;
+  text-align: center;
+}
+
+.page-footer p {
+  font-size: 11.5px;
+  color: var(--color-text-faint);
+  margin: 4px 0;
+}
+
+.page-footer a {
+  color: var(--color-text-faint);
+  text-decoration: underline;
+}
+
+/* ---------- クロスリンク（規約⇔ポリシー） ---------- */
+
+.cross-link {
+  display: block;
+  text-align: center;
+  font-size: 13px;
+  color: var(--color-primary);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-m);
+  padding: 12px;
+  margin: 18px 0 8px;
+  text-decoration: none;
+}
+
+.cross-link span {
+  color: var(--color-text-faint);
+  font-size: 11.5px;
+  display: block;
+  margin-top: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
