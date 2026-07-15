@@ -1,28 +1,20 @@
 /* =========================================================
-   利用規約 / プライバシーポリシー 共通スタイル
+   利用規約 / プライバシーポリシー 共通スタイル（シンプル版）
    LINEミニアプリ（スマートフォン表示）向け
-   ブランドカラー：アプリ本体の style.css に準拠したピンク系
    ========================================================= */
 
 :root {
   --color-bg: #fff6f7;
-  --color-surface: #ffffff;
-  --color-surface-soft: #fff9fa;
-  --color-border: #f0c5cc;
-
   --color-text: #444444;
   --color-text-muted: #666666;
   --color-text-faint: #999999;
 
-  --color-primary: #d96c7d;      /* 見出し・チップ等のメインピンク */
-  --color-primary-soft: #ffeef1;
-  --color-primary-line: #f4b8c5;
+  --color-border: #f0c5cc;
 
-  --color-accent: #f48ca0;       /* ボタン・強調に使うピンク */
-  --color-accent-soft: #fdeef1;
+  --color-primary: #d96c7d;      /* 見出しのメインピンク */
+  --color-accent: #f48ca0;       /* リンク・強調に使うピンク */
 
-  --color-check: #d96c7d;        /* 「取得しない情報」等の安心表示（旧：緑→ピンクに変更） */
-  --color-check-soft: #fff0f3;
+  --color-check-soft: #fff0f3;   /* 「取得しない情報」等の背景（旧：緑→ピンク） */
   --color-check-line: #f4c7d0;
 
   --font-body:
@@ -31,10 +23,6 @@
     "Hiragino Sans",
     "Yu Gothic",
     sans-serif;
-
-  --radius-l: 20px;
-  --radius-m: 14px;
-  --radius-s: 10px;
 
   --line-safe-bottom: 34px;
 }
@@ -65,159 +53,70 @@ body {
   }
 }
 
-img { max-width: 100%; display: block; }
-
 a { color: var(--color-primary); }
 
 /* ---------- ヘッダー ---------- */
 
 .app-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: var(--color-surface);
-  color: var(--color-text);
-  padding: 22px 20px 20px;
-  border-bottom-left-radius: var(--radius-l);
-  border-bottom-right-radius: var(--radius-l);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.app-header__eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  color: var(--color-accent);
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.app-header__eyebrow::before {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--color-accent);
-  display: inline-block;
+  padding: 28px 20px 18px;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .app-header h1 {
   font-weight: 700;
-  font-size: 26px;
+  font-size: 24px;
   margin: 0 0 6px;
   color: var(--color-primary);
-  letter-spacing: 0.01em;
 }
 
 .app-header__updated {
   font-size: 12px;
   color: var(--color-text-faint);
-}
-
-/* ---------- 目次（チップナビ） ---------- */
-
-.toc-nav {
-  position: sticky;
-  top: 0;
-  z-index: 19;
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding: 12px 16px;
-  background: linear-gradient(to bottom, var(--color-bg) 70%, rgba(255, 246, 247, 0));
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.toc-nav::-webkit-scrollbar { display: none; }
-
-.toc-nav a {
-  flex: 0 0 auto;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: var(--color-primary);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  padding: 7px 13px;
-  border-radius: 999px;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
-}
-
-.toc-nav a.is-active {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
-  color: #fff;
+  margin: 0;
 }
 
 /* ---------- 本文コンテナ ---------- */
 
 main {
-  padding: 4px 16px 28px;
+  padding: 0 20px 28px;
   max-width: 640px;
   margin: 0 auto;
 }
 
-.lead-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-l);
-  padding: 18px 18px 20px;
-  margin: 12px 0 18px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+.lead {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-border);
 }
 
-.lead-card p {
+.lead p {
   margin: 0 0 10px;
   color: var(--color-text-muted);
   font-size: 13.5px;
 }
-.lead-card p:last-child { margin-bottom: 0; }
+.lead p:last-child { margin-bottom: 0; }
 
-.lead-card__service {
-  display: inline-block;
-  font-size: 11.5px;
-  font-weight: 600;
-  color: var(--color-accent);
-  background: var(--color-accent-soft);
-  border-radius: 999px;
-  padding: 4px 10px;
-  margin-bottom: 10px;
-  letter-spacing: 0.02em;
-}
-
-/* ---------- 条文カード ---------- */
+/* ---------- 条文 ---------- */
 
 .clause {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-l);
-  padding: 18px 18px 20px;
-  margin-bottom: 14px;
-  scroll-margin-top: 96px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 22px 0;
+  border-bottom: 1px solid var(--color-border);
 }
 
-.clause__number {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--color-primary);
-  background: var(--color-primary-soft);
-  border-radius: 999px;
-  display: inline-block;
-  padding: 3px 12px;
-  margin-bottom: 10px;
-  letter-spacing: 0.04em;
+.clause:last-child {
+  border-bottom: none;
 }
 
 .clause h2 {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 700;
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   color: var(--color-text);
   line-height: 1.6;
+}
+
+.clause h2 .clause__number {
+  color: var(--color-primary);
+  margin-right: 4px;
 }
 
 .clause p {
@@ -235,132 +134,47 @@ main {
 .clause li:last-child { margin-bottom: 0; }
 
 .clause__sub {
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 700;
   color: var(--color-primary);
-  margin: 14px 0 6px;
+  margin: 16px 0 6px;
 }
-
-/* ---------- 強調ボックス（禁止事項・注意など） ---------- */
-
-.notice-box {
-  background: var(--color-accent-soft);
-  border-left: 3px solid var(--color-accent);
-  border-radius: var(--radius-s);
-  padding: 12px 14px;
-  margin: 12px 0;
-  font-size: 13.5px;
-}
-
-.notice-box ul { margin: 0; padding-left: 1.2em; }
-.notice-box li { margin-bottom: 6px; }
-.notice-box li:last-child { margin-bottom: 0; }
 
 /* ---------- 安心ボックス（取得しない情報 等） ---------- */
 
 .safe-box {
   background: var(--color-check-soft);
-  border: 1px solid var(--color-check-line);
-  border-radius: var(--radius-m);
+  border-radius: 10px;
   padding: 14px 15px;
-  margin: 12px 0;
+  margin: 10px 0;
 }
 
 .safe-box__title {
-  display: flex;
-  align-items: center;
-  gap: 6px;
   font-size: 13px;
   font-weight: 700;
-  color: var(--color-check);
+  color: var(--color-primary);
   margin-bottom: 8px;
-}
-
-.safe-box__title::before {
-  content: "✓";
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 16px;
-  height: 16px;
-  font-size: 10px;
-  color: #fff;
-  background: var(--color-check);
-  border-radius: 50%;
 }
 
 .safe-box ul {
   margin: 0;
-  padding-left: 0;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.safe-box li {
-  font-size: 12.5px;
-  color: #9c4a58;
-  background: #fff;
-  border: 1px solid var(--color-check-line);
-  border-radius: 999px;
-  padding: 4px 10px;
-}
-
-/* ---------- データの扱い方カード(取得情報の内訳) ---------- */
-
-.data-flow {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 12px 0;
-}
-
-.data-flow__item {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-m);
-  padding: 12px 13px;
-  background: var(--color-surface-soft);
-}
-
-.data-flow__item h3 {
+  padding-left: 1.1em;
   font-size: 13px;
-  margin: 0 0 4px;
-  color: var(--color-primary);
-}
-
-.data-flow__item p {
-  font-size: 13px;
-  margin: 0;
   color: var(--color-text-muted);
 }
+
+.safe-box li { margin-bottom: 4px; }
+.safe-box li:last-child { margin-bottom: 0; }
 
 /* ---------- お問い合わせ ---------- */
 
 .contact-card {
-  background: linear-gradient(135deg, #fff9fa 0%, #ffeef1 100%);
-  border: 1px solid var(--color-primary-line);
-  color: var(--color-text);
-  border-radius: var(--radius-l);
-  padding: 18px;
-  margin-top: 6px;
-}
-
-.contact-card h2 {
-  font-size: 15.5px;
-  font-weight: 700;
-  margin: 0 0 10px;
-  color: var(--color-primary);
-}
-
-.contact-card dl {
-  margin: 0;
+  margin-top: 8px;
   font-size: 13px;
 }
 
 .contact-card dt {
-  color: var(--color-accent);
-  font-weight: 600;
+  color: var(--color-text-faint);
   font-size: 11.5px;
   margin-top: 10px;
 }
@@ -374,8 +188,8 @@ main {
 
 .page-footer {
   max-width: 640px;
-  margin: 20px auto 0;
-  padding: 0 16px 8px;
+  margin: 0 auto;
+  padding: 20px 20px 8px;
   text-align: center;
 }
 
@@ -383,35 +197,6 @@ main {
   font-size: 11.5px;
   color: var(--color-text-faint);
   margin: 4px 0;
-}
-
-.page-footer a {
-  color: var(--color-text-faint);
-  text-decoration: underline;
-}
-
-/* ---------- クロスリンク（規約⇔ポリシー） ---------- */
-
-.cross-link {
-  display: block;
-  text-align: center;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--color-primary);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-m);
-  padding: 12px;
-  margin: 18px 0 8px;
-  text-decoration: none;
-}
-
-.cross-link span {
-  color: var(--color-text-faint);
-  font-size: 11.5px;
-  font-weight: 400;
-  display: block;
-  margin-top: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
